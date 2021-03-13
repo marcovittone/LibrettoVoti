@@ -4,7 +4,33 @@ import java.util.*;
 
 public class Libretto {
 
-	LinkedList <Voto> voti = new LinkedList<Voto>();
+	List <Voto> voti;
+	
+	
+	
+	public Libretto() {
+		
+		this.voti=new LinkedList<Voto>();
+	}
+	
+	
+	public Libretto votiUguali(int voto) {
+		
+		Libretto l= new Libretto();
+		
+		for(Voto v: this.voti)
+		{
+			if(v.getVoto() == 25)
+			{
+				l.add(v);
+			}
+		}
+		
+		return l;
+		
+	}
+	
+	
 	
 	public boolean add (Voto v) {
 		
@@ -18,16 +44,22 @@ public class Libretto {
 		
 	}
 	
+	/**
+	 * restituisce voto registrato dato il nome del corso, null se non si trova niente
+	 * @param materia
+	 * @return
+	 */
 	
-	public int quantoHaiPreso (String materia) {
+	
+	public Voto quantoHaiPreso (String materia) {
 		
 		for(Voto v:this.voti)
 		{
-			if(materia.equals(v.nomeCorso))
-				return v.voto;
+			if(materia.equals(v.getNomeCorso()))
+				return v;
 		}
 		
-		return -1;
+		return null;
 	}
 
 
@@ -35,14 +67,29 @@ public class Libretto {
 		
 		for(Voto v:this.voti)
 		{
-			if(v.nomeCorso.equals(voto.nomeCorso) && v.voto!= voto.voto)
+			if(v.getNomeCorso().equals(voto.getNomeCorso()) && v.getVoto()!= voto.getVoto())
 				return true;
 		}
 		return false;
 	}
 
 
-	public List<Voto> migliorami() {
+	@Override
+	public String toString() {
+
+		String s="";
+		for(Voto v: this.voti)
+			s+=v.toString()+"\n";
+		
+		return s;
+	}
+	
+	
+	
+	
+
+
+	/*public List<Voto> migliorami() {
 		
 		LinkedList <Voto> l= new LinkedList<Voto>();
 		for(Voto v: this.voti)
@@ -56,4 +103,7 @@ public class Libretto {
 		}
 		return l;
 	}
+	
+	
+	*/
 }

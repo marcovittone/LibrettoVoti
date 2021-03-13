@@ -1,5 +1,6 @@
 package it.polito.tdp.libretto.model;
 
+import java.time.LocalDate;
 import java.util.*;
 
 public class TestLibretto {
@@ -8,34 +9,29 @@ public class TestLibretto {
 		
 		Libretto l= new Libretto();
 		
-		l.add(new Voto("Informatica", 30, "15/02/2019"));
-		l.add(new Voto("Analisi", 26, "03/02/2020"));
-		l.add(new Voto("Programmazione a oggetti", 30, "29/01/2021"));
-		l.add(new Voto("Fisica", 21, "18/06/2020"));
-		Voto s= new Voto("Chimica", 25, "09/09/2020");
+		l.add(new Voto("Informatica", 30, LocalDate.of(2019, 2, 15)));
+		l.add(new Voto("Analisi", 26, LocalDate.of(2019, 2, 3)));
+		l.add(new Voto("Programmazione a oggetti", 30, LocalDate.of(2021, 1, 29)));
+		l.add(new Voto("Fisica", 21, LocalDate.of(2020, 6, 18)));
+		Voto s= new Voto("Chimica", 25, LocalDate.of(2020, 9, 9));
 		l.add(s);
-		l.add(new Voto("Economia", 30, "02/09/1998"));
-		l.add(new Voto("Diritto privato", 30, "05/02/2021"));
-		l.add(new Voto("Ricerca operativa", 30, "31/08/2020"));
-		l.add(new Voto("Basi dati", 25, "07/02/2020"));
-		l.add(new Voto("Statistica", 29, "30/01/2020"));
+		l.add(new Voto("Economia", 30,LocalDate.of(1998, 9, 2)));
+		l.add(new Voto("Diritto privato", 30,LocalDate.of(2020, 2, 5)));
+		l.add(new Voto("Ricerca operativa", 30, LocalDate.of(2020, 8, 31)));
+		l.add(new Voto("Basi dati", 25, LocalDate.of(2020, 2, 3)));
+		l.add(new Voto("Statistica", 29, LocalDate.of(2020, 1, 30)));
 		
 		System.out.println("Corsi il cui voto est 25:");
 		
-		for(Voto v: l.voti)
-		{
-			if(v.voto == 25)
-			{
-				System.out.println(v.nomeCorso);
-			}
-		}
+		System.out.println(l.votiUguali(25));
 		
 		
 		System.out.println("Voto dell'esame di analisi");
 		System.out.println(l.quantoHaiPreso("Analisi"));
 		
 		
-		System.out.println("Contieni esame chimica?");
+		/*
+		 System.out.println("Contieni esame chimica?");
 		if(l.voti.contains(s))
 			System.out.println("yes");
 		else
@@ -93,7 +89,7 @@ public class TestLibretto {
 			{
 				System.out.println(v.nomeCorso);
 			}
-		}
+		}*/
 		
 		
 

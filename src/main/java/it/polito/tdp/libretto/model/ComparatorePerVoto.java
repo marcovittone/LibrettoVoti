@@ -7,7 +7,7 @@ public class ComparatorePerVoto implements Comparator<Voto> {
 	@Override
 	public int compare(Voto v, Voto vv) {
 		
-		return vv.voto-v.voto;
+		return vv.getVoto()-v.getVoto();
 	}
 
 }
