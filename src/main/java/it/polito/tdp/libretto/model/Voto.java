@@ -27,6 +27,8 @@ public class Voto implements Comparable <Voto> {
 	public int compareTo(Voto v) {
 		return this.nomeCorso.compareTo(v.nomeCorso);
 	}
+
+	
 	
 	
 	
